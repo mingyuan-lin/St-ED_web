@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>St-ED</title>
+  <link rel="icon" href="./images/bulb.png" sizes="16x16">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+rel="stylesheet">
+
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+<link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+<link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="./static/css/index.css">
+</head>
+
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class=" columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Unifying Motion Deblurring and Disparity Estimation with Stereo Event and Intensity Cameras</h1>
+            
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href = "https://mingyuan-lin.github.io/"> Mingyuan Lin</a><sup>1</sup>,</span>
+            </div>
+  
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Wuhan University,</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="./sted.pdf"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2307.08228"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/mingyuan-lin/St-ED_code"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/mingyuan-lin/St-ED_code"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                    </a>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<section class="section">
+  <div class="container" style="width:100%">
+
+    <div class="columns is-centered">
+      <div id="results-carousel1" class="carousel results-carousel">
+
+        <div class="item item-toby">
+          <img src="./videos/04_c_108.gif" />
+        </div>
+
+        <div class="item item-toby">
+          <img src="./videos/01_c_24.gif" />
+        </div>
+
+        <div class="item item-toby">
+          <img src="./videos/community_08_0.gif" />
+        </div>
+
+        <div class="item item-toby">
+          <img src="./videos/sidewalk_19_36.gif" />
+        </div>
+
+      </div>
+    </div>
+  </div> 
+  <!-- <div class="container" style="width:57%">  -->
+  <div class="container" style="width:57%"> 
+       <div class="columns is-centered has-text-centered">
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">Blurry image</h5>
+          </div>
+        </div>
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">Events</h5>
+          </div>
+
+        </div>
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">Deblurred image</h5>
+          </div>
+        </div>
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">Predicted disparity</h5>
+          </div>
+
+        </div>
+    </div>
+  </div>
+</section> 
+
+
+
+    <!-- Abstract -->
+    <br>
+    <section class="hero  is-small">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <br>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Due to the extremely low latency, events have been recently exploited to supplement lost information for motion deblurring. However, existing approaches are proposed under the assumption that intensity images and corresponding events are aligned accurately at the pixel level, limiting the performance of the misaligned event and intensity camera setup in the real world. To tackle this problem, we propose a novel coarse-to-fine framework, named NETwork of Event-based motion Deblurring with STereo event-intensity cameras (St-EDNet), to recover high-quality images directly from the misaligned inputs, consisting of a single blurry image and the concurrent event streams. Specifically, the coarse spatial alignment of the blurry image and the event streams is first implemented with a cross-modal stereo matching module without the need for ground-truth depths. Then, a dual-feature embedding architecture is proposed to gradually build the fine bidirectional association of the coarsely aligned data and reconstruct the sequence of the latent sharp images. Furthermore, we build a new dataset with STereo Event and Intensity cameras (St-EIC), containing real-world events, intensity images and dense disparity maps. Experiments on real-world datasets demonstrate the superiority of the proposed network over state-of-the-art methods. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </section>
+      <!-- <script>
+        const carousel = new bulmaCarousel('.carousel', {
+  slidesToShow: 2,
+  slidesToScroll: 2,
+});
+
+
+      <br>
+        <section class="hero  is-small">
+          <!-- Paper Pipeline. --><br>
+          <div class="columns is-centered has-text-centered">
+            
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Method</h2>
+                <img src="./images/pipeline.png"
+                     class="interpolation-image"
+                     width="70%">
+                <p class="is-bold">Overview of the proposed SEVFI-Net</p>
+            </div>
+            </div>
+          </div>
+          
+
+<section class="hero  is-small">
+	<div class="container is-max-desktop">
+		<div class="columns is-centered ">
+			<div class="column is-full-width">
+				  <div class="content has-text-centered">
+					<h2 class="title is-3">More Qualitative Results in Real-World Scenarios</h2>
+					</div>
+				<div class="content has-text-centered">
+					<h3 class="title is-4">Results of Motion Deblurring</h3>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="container is-max-desktop">
+		<div class="content has-text-justified">
+			<p>
+				We compare our St-EDNet with two conventional intensity-based methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/CVPR.2018.00663">LEVS</a> and <a href="https://doi.org/10.1109/TPAMI.2021.3116135">Motion-ETR</a>, one intensity-based stereo deblurring method, <I>i.e.</I>, <a href="https://shangchenzhou.com/projects/davanet/">DAVANet</a>, and four event-based methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/CVPR.2019.00698">EDI</a>, <a href="https://doi.org/10.1007/978-3-030-58601-0_10">eSL-Net</a>, <a href="https://doi.org/10.1007/978-3-030-58598-3_41">LEDVDI</a>, and <a href="https://doi.org/10.1109/ICCV48922.2021.00258">RED-Net</a>.
+			</p>
+		</div>
+	</div>
+	
+	<!--<div class="container " style="width:70%;"> 
+      <div class="columns is-gapless is-centered has-text-centered">
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">Input</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">DAIN</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">RIFE</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">RRIN</h5>
+         </div>
+       </div>
+   </div>
+  </div>
+</div>
+<div class="container " style="width:90%;margin-top:-15px;"> 
+	<div id="results-carousel" class="carousel results-carousel">
+
+		<div class="item item--chair-tp">
+				<video width="100%" playsinline="" autoplay="" loop="" preload="" muted="" height="80%">
+					<source src="./videos/01_f.mp4" type="video/mp4">
+				</video>  
+         	</div>
+		<div class="item item-steve">
+			<video width="100%" playsinline="" autoplay="" loop="" preload="" muted="" height="80%">
+				<source src="./videos/basketball.mp4" type="video/mp4">
+			</video>
+		</div>
+		<div class="item item--chair-tp">
+				<video width="100%" playsinline="" autoplay="" loop="" preload="" muted="" height="80%">
+					<source src="./videos/00_g.mp4" type="video/mp4">
+					</video>  
+    		</div>
+  	</div>
+  </div>
+
+	<div class="container " style="width:70%;"> 
+      <div class="columns is-centered has-text-centered">
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">Super Slomo</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">Time Lens</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">Ours</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">GT</h5>
+         </div>
+       </div>
+   </div>
+  </div>
+</div>-->
+</section>
+  
+<section class="hero  is-small">
+	<div class="container is-max-desktop">
+		<div class="columns is-centered ">
+			<div class="column is-full-width">
+				<div class="content has-text-centered">
+					<h3 class="title is-4">Results of Stereo Matching</h3>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="container is-max-desktop">
+		<div class="content has-text-justified">
+			<p>
+        With the stereo event and intensity camera setup, we evaluate the performance of St-EDNet in the single disparity estimation task and in the downstream disparity sequence estimation task, combing motion deblurring methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/TPAMI.2021.3116135">Motion-ETR</a> and the proposed St-EDNet, with two existing cross-modal stereo matching algorithms, <I>i.e.</I>, <a href="https://github.com/Haram-kim/Hetero_Stereo_Matching">HSM</a> and <a href="https://github.com/ringochuchudull/Event-Intensity-Stereo">SSIE</a>.
+			</p>
+		</div>
+	</div>
+	
+	<div class="container " style="width:57%;"> 
+      <div class="columns is-gapless is-centered has-text-centered">
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">Blurry image</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">Ours</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">Motion-ETR + HSM</h5>
+         </div>
+       </div>
+       <div class="column text-is-centered">
+         <div class="content">
+           <h5 class=" is-5">St-EDNet + HSM</h5>
+         </div>
+       </div>
+   </div>
+  </div>
+</div>
+<div class="container " style="width:90%;margin-top:-15px;"> 
+		<div id="results-carousel" class="carousel results-carousel">
+			<div class="item item-steve">
+        <img src="./videos/00_b_6.gif" />
+			</div>
+			<div class="item item-steve">
+        <img src="./videos/00_b_6.gif" />
+			</div>
+
+
+
+  </div>
+  </div>
+
+	<div class="container " style="width:57%;"> 
+      <div class="columns is-centered has-text-centered">
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">Events</h5>
+          </div>
+        </div>
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">GT</h5>
+          </div>
+        </div>
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">Motion-ETR + SIES</h5>
+          </div>
+        </div>
+        <div class="column text-is-centered">
+          <div class="content">
+            <h5 class=" is-5">St-EDNet + SIES</h5>
+          </div>
+        </div>
+   </div>
+  </div>
+</div>
+</section>
+
+
+  <br>
+  <br>
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        @article{lin2023unifying,
+        	title={Unifying Motion Deblurring and Disparity Estimation with Stereo Event and Intensity Cameras}, 
+        	author={Lin, Mingyuan},
+        	journal={arXiv preprint arXiv:},
+        	year={2023}
+        	}
+      </code></pre>
+    </div>
+
+  
+  
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+<!--         <a class="icon-link"
+           href="./static/videos/nerfies_paper.pdf">
+          <i class="fas fa-file-pdf"></i>
+        </a> -->
+        <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website was modified from the <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. Appreaciate for sharing this perfect template!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+  </body>
+</html>
+
