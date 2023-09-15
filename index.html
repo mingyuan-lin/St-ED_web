@@ -39,18 +39,18 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
       <div class="container is-max-desktop">
         <div class=" columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Unifying Motion Deblurring and Disparity Estimation with Stereo Event and Intensity Cameras</h1>
+            <h1 class="title is-1 publication-title">Learning Parallax for Stereo Event-based Motion Deblurring</h1>
             
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href = "https://mingyuan-lin.github.io/"> Mingyuan Lin</a><sup>1</sup>,</span>
+                <a href = "https://mingyuan-lin.github.io/">Mingyuan Lin</a><sup>1</sup>, <a href = "https://scholar.google.com/citations?user=mvo0cL8AAAAJ&hl=en&oi=ao">Chu He</a><sup>1</sup><sup>†</sup>, <a href = "https://dvs-whu.cn/">Lei Yu</a><sup>1</sup><sup>†</sup>. </span>
             </div>
   
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Wuhan University,</span>
+              <span class="author-block"><sup>1</sup>Wuhan University.</span>
             </div>
             <div class="is-size-5 publication-authors">
-              
+              <span class="author-block"><sup>†</sup>Corresponding authors.</span>
             </div>
             <div class="column has-text-centered">
               <div class="publication-links">
@@ -92,7 +92,6 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
                     <span>Data</span>
                     </a>
               </div>
-  
             </div>
           </div>
         </div>
@@ -195,7 +194,7 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
                 <img src="./images/pipeline.png"
                      class="interpolation-image"
                      width="70%">
-                <p class="is-bold">Overview of the proposed SEVFI-Net</p>
+                <p class="is-bold">Overview of the proposed St-EDNet</p>
             </div>
             </div>
           </div>
@@ -219,82 +218,86 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
 	<div class="container is-max-desktop">
 		<div class="content has-text-justified">
 			<p>
-				We compare our St-EDNet with two conventional intensity-based methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/CVPR.2018.00663">LEVS</a> and <a href="https://doi.org/10.1109/TPAMI.2021.3116135">Motion-ETR</a>, one intensity-based stereo deblurring method, <I>i.e.</I>, <a href="https://shangchenzhou.com/projects/davanet/">DAVANet</a>, and four event-based methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/CVPR.2019.00698">EDI</a>, <a href="https://doi.org/10.1007/978-3-030-58601-0_10">eSL-Net</a>, <a href="https://doi.org/10.1007/978-3-030-58598-3_41">LEDVDI</a>, and <a href="https://doi.org/10.1109/ICCV48922.2021.00258">RED-Net</a>.
+				We compare our St-EDNet with two conventional intensity-based methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/CVPR.2018.00663">LEVS</a> and <a href="https://doi.org/10.1109/TPAMI.2021.3116135">Motion-ETR</a>, one intensity-based stereo deblurring method, <I>i.e.</I>, <a href="https://shangchenzhou.com/projects/davanet/">DAVANet</a>, and four event-based methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/CVPR.2019.00698">EDI</a>, <a href="https://doi.org/10.1007/978-3-030-58601-0_10">eSL-Net</a>, <a href="https://doi.org/10.1007/978-3-030-58598-3_41">LEDVDI</a>, <a href="https://doi.org/10.1109/ICCV48922.2021.00258">RED-Net</a>, and <a href="https://ieeexplore.ieee.org/document/9880353/">E-CIR</a>.
 			</p>
 		</div>
 	</div>
 	
-	<!--<div class="container " style="width:70%;"> 
+	<div class="container " style="width:57%;"> 
       <div class="columns is-gapless is-centered has-text-centered">
        <div class="column text-is-centered">
          <div class="content">
-           <h5 class=" is-5">Input</h5>
+           <h5 class=" is-5">Inputs</h5>
          </div>
        </div>
        <div class="column text-is-centered">
          <div class="content">
-           <h5 class=" is-5">DAIN</h5>
+           <h5 class=" is-5">DAVANet</h5>
          </div>
        </div>
        <div class="column text-is-centered">
          <div class="content">
-           <h5 class=" is-5">RIFE</h5>
+           <h5 class=" is-5">LEVS</h5>
          </div>
        </div>
        <div class="column text-is-centered">
          <div class="content">
-           <h5 class=" is-5">RRIN</h5>
+           <h5 class=" is-5">Motion-ETR</h5>
          </div>
        </div>
+       <div class="column text-is-centered">
+        <div class="content">
+          <h5 class=" is-5">EDI</h5>
+        </div>
+      </div>
    </div>
   </div>
 </div>
 <div class="container " style="width:90%;margin-top:-15px;"> 
 	<div id="results-carousel" class="carousel results-carousel">
-
-		<div class="item item--chair-tp">
-				<video width="100%" playsinline="" autoplay="" loop="" preload="" muted="" height="80%">
-					<source src="./videos/01_f.mp4" type="video/mp4">
-				</video>  
-         	</div>
 		<div class="item item-steve">
-			<video width="100%" playsinline="" autoplay="" loop="" preload="" muted="" height="80%">
-				<source src="./videos/basketball.mp4" type="video/mp4">
-			</video>
-		</div>
-		<div class="item item--chair-tp">
-				<video width="100%" playsinline="" autoplay="" loop="" preload="" muted="" height="80%">
-					<source src="./videos/00_g.mp4" type="video/mp4">
-					</video>  
-    		</div>
-  	</div>
+      <img src="./videos/04_f_108.gif" />
+    </div>
+		<div class="item item-steve">
+      <img src="./videos/00_g_324.gif" />
+    </div>
+    <div class="item item-steve">
+      <img src="./videos/sidewalk_19_138.gif" />
+    </div>
   </div>
+</div>
 
-	<div class="container " style="width:70%;"> 
-      <div class="columns is-centered has-text-centered">
-       <div class="column text-is-centered">
-         <div class="content">
-           <h5 class=" is-5">Super Slomo</h5>
-         </div>
-       </div>
-       <div class="column text-is-centered">
-         <div class="content">
-           <h5 class=" is-5">Time Lens</h5>
-         </div>
-       </div>
-       <div class="column text-is-centered">
-         <div class="content">
-           <h5 class=" is-5">Ours</h5>
-         </div>
-       </div>
-       <div class="column text-is-centered">
-         <div class="content">
-           <h5 class=" is-5">GT</h5>
-         </div>
-       </div>
-   </div>
+
+	<div class="container " style="width:57%;"> 
+    <div class="columns is-centered has-text-centered">
+      <div class="column text-is-centered">
+        <div class="content">
+          <h5 class=" is-5">eSL-Net</h5>
+        </div>
+      </div>
+      <div class="column text-is-centered">
+        <div class="content">
+          <h5 class=" is-5">LEDVDI</h5>
+        </div>
+      </div>
+      <div class="column text-is-centered">
+        <div class="content">
+          <h5 class=" is-5">RED-Net</h5>
+        </div>
+      </div>
+      <div class="column text-is-centered">
+        <div class="content">
+          <h5 class=" is-5">E-CIR</h5>
+        </div>
+      </div>
+      <div class="column text-is-centered">
+      <div class="content">
+        <h5 class=" is-5">St-EDNet (Ours)</h5>
+      </div>
+      </div>
+    </div>
   </div>
-</div>-->
+</div>
 </section>
   
 <section class="hero  is-small">
@@ -312,7 +315,7 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
 	<div class="container is-max-desktop">
 		<div class="content has-text-justified">
 			<p>
-        With the stereo event and intensity camera setup, we evaluate the performance of St-EDNet in the single disparity estimation task and in the downstream disparity sequence estimation task, combing motion deblurring methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/TPAMI.2021.3116135">Motion-ETR</a> and the proposed St-EDNet, with two existing cross-modal stereo matching algorithms, <I>i.e.</I>, <a href="https://github.com/Haram-kim/Hetero_Stereo_Matching">HSM</a> and <a href="https://github.com/ringochuchudull/Event-Intensity-Stereo">SSIE</a>.
+        With the stereo event and intensity camera setup, we evaluate the performance of St-EDNet in the single disparity estimation task, combing motion deblurring methods, <I>i.e.</I>, <a href="https://doi.org/10.1109/TPAMI.2021.3116135">Motion-ETR</a> and the proposed St-EDNet, with two existing cross-modal stereo matching algorithms, <I>i.e.</I>, <a href="https://github.com/Haram-kim/Hetero_Stereo_Matching">HSM</a> and <a href="https://github.com/ringochuchudull/Event-Intensity-Stereo">SSIE</a>.
 			</p>
 		</div>
 	</div>
@@ -348,7 +351,10 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
         <img src="./videos/00_b_6.gif" />
 			</div>
 			<div class="item item-steve">
-        <img src="./videos/00_b_6.gif" />
+        <img src="./videos/00_c_6.gif" />
+			</div>
+      <div class="item item-steve">
+        <img src="./videos/community_19_6.gif" />
 			</div>
 
 
@@ -390,9 +396,9 @@ href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
-        @article{lin2023unifying,
-        	title={Unifying Motion Deblurring and Disparity Estimation with Stereo Event and Intensity Cameras}, 
-        	author={Lin, Mingyuan},
+        @article{lin2023learning,
+        	title={Learning Parallax for Stereo Event-based Motion Deblurring}, 
+        	author={Lin, Mingyuan and He, Chu and Yu, Lei},
         	journal={arXiv preprint arXiv:},
         	year={2023}
         	}
